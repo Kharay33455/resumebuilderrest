@@ -64,10 +64,8 @@ MIDDLEWARE = [
 ]
 
 
-#CORS_ALLOWED_ORIGINS = os.getenv("CORSALLOWEDORIGIN").split(" ")
-CORS_ALLOWED_ORIGINS = [
-    "http://192.168.0.2:3000", "http://localhost:3000", "http://0.0.0.0:3000", "http://192.168.56.1:3000"
-]
+CORS_ALLOWED_ORIGINS = os.getenv("CORSALLOWEDORIGIN").split(" ")
+
 
 ROOT_URLCONF = 'resumebuilder.urls'
 
