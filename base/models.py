@@ -66,15 +66,6 @@ class Language(models.Model):
     def __str__(self):
         return f'{self.name} for {self.candidate}'
 
-class Certification(models.Model):
-    name = models.TextField()
-    organization = models.TextField()
-    Date = models.DateField()
-    candidate = models.ForeignKey(Candidate, on_delete = models.CASCADE)
-
-    def __str__(self):
-        return f'{self.candidate} certificate'
-
 class Reference(models.Model):
     full_name = models.TextField()
     address = models.TextField()
@@ -94,3 +85,10 @@ class Resume(models.Model):
 
 	def __str__(self):
 		return f"{self.first_name} {self.job_role} resume"
+
+class Template(models.Model):
+    name = models.CharField(max_length = 10)
+    image = models.ImageField(upload_to="templates")
+
+    def __str__(self):
+        return self.name

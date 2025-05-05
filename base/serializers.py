@@ -26,11 +26,7 @@ class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
         exclude = ['candidate','id']
-
-class CertificationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Certification
-        exclude = ['candidate','id']
+    exclude = ['candidate','id']
 
 class ReferenceSerializer(serializers.ModelSerializer):
     class Meta:

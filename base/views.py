@@ -35,8 +35,19 @@ def get_user_details(request):
 
     skills = SkillSerializer(Skill.objects.filter(candidate = candidate), many = True).data
     languages = LanguageSerializer(Language.objects.filter(candidate = candidate), many = True).data
-    certifications = CertificationSerializer(Certification.objects.filter(candidate = candidate), many = True).data
+  
     refs = ReferenceSerializer(Reference.objects.filter(candidate = candidate), many = True).data
 
-    user_data = {'candidate' : candidateS, "work_exps" : work_expS, "education" : education, "skills" : skills, "languages" : languages, "certs" : certifications, "refs" : refs}
+    user_data = {'candidate' : candidateS, "work_exps" : work_expS, "education" : education, "skills" : skills, "languages" : languages, "refs" : refs}
     return Response(user_data, status = 200)
+
+
+@api_view(['GET'])
+def get_templates(request):
+    _templates = Template.objects.all()
+    templates = []
+    for _ in _templates:
+        templates.append({'name' : _.name, 'image': _.image.url})
+    context = {'templates' : templates}
+    print(context)
+    return Response(context, status = 200)
