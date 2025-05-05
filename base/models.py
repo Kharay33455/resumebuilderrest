@@ -84,3 +84,13 @@ class Reference(models.Model):
 
     def __str__(self):
         return f'Reference {self.full_name} for {self.candidate}'
+
+class Resume(models.Model):
+	resumeID = models.CharField(max_length = 30)
+	resume = models.FileField(upload_to = "resume")
+	first_name = models.CharField(max_length = 30)
+	last_name = models.CharField(max_length = 30)
+	job_role = models.CharField(max_length = 50)
+
+	def __str__(self):
+		return f"{self.first_name} {self.job_role} resume"
