@@ -1,3 +1,4 @@
 .env
 rbenv
 *pyc
+db.sqlite3
